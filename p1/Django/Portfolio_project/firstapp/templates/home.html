@@ -1,38 +1,61 @@
-{% load static%}
+{% load static %}
 
 <!DOCTYPE html>
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>portf </title>
-    <link rel="icon" type="image/x-icon" href="./Images/favicon.jpeg">
-    <link rel="stylesheet" href="{%static 'css/style.css'%}">
-    
-    
+    <meta name="description" content="Portfolio of Sumit Sidharth - CSE Student & Developer">
+    <meta name="keywords" content="portfolio, developer, CSE, Sumit Sidharth">
+    <title>Sumit Sidharth | Portfolio</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{% static 'images/avatar.png' %}">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
-<body>`
-    
+
+<body>
+    <!-- Loading Animation -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle Dark/Light Theme">
+        <i class="fas fa-moon"></i>
+    </button>
+
+    <!-- Mobile Menu Button -->
+    <div class="mobile-menu-btn" id="mobileMenuBtn">
+        <i class="fas fa-bars"></i>
+    </div>
+
     <!-- Navbar Section -->
     <nav id="navbar" class="flex s-around bg-color">
         <div class="left-nav">
-            <h2 class="t-white">Portfolio</h2>
+            <a href="#home" class="logo">Portfolio</a>
         </div>
-        <div class="right-nav">
+        <div class="right-nav" id="navMenu">
             <ul class="flex">
-                <li><a href="#home" class="t-white roboto">Home <i class="fa-solid fa-house"></i></a></li>
-                <li><a href="#about" class="t-white roboto">About Me <i class="fa-solid fa-user"></i></a></li>
-                <li><a href="#skills" class="t-white roboto">Skills <i class="fa-solid fa-code"></i></a></li>
-                <li><a href="#Projects" class="t-white roboto">Projects <i class="fas fa-project-diagram"></i></a></li>
-                <li><a href="#Contact" class="t-white roboto">Contact <i class="fa-solid fa-rocket"></i></a></li>
+                <li><a href="#home" class="t-white roboto"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#about" class="t-white roboto"><i class="fas fa-user"></i> About</a></li>
+                <li><a href="#skills" class="t-white roboto"><i class="fas fa-code"></i> Skills</a></li>
+                <li><a href="#projects" class="t-white roboto"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                <li><a href="#contact" class="t-white roboto"><i class="fas fa-envelope"></i> Contact</a></li>
             </ul>
         </div>
     </nav>
-
-        
 
     <!-- Home Section -->
     <section id="home" class="flex s-around sw-80 m-auto">
@@ -40,41 +63,61 @@
             <div class="home-content">
                 <h6 class="poppinss">Hi, I'm</h6>
                 <h1 class="t-white">Sumit Sidharth</h1>
-                <h4 class="poppinss">CSE Students</h4>
-                <a href="{% static 'pdf/Sumit_Resume.pdf' %}"  target="_blank">
-                    <button class="btn poppins">Resume</button></a>
-                    
-                <a class="btn live poppins" id="hireme" href=""
-                    target="_blank">Let's Talk</a>
+                <h4 class="poppinss">CSE Student</h4>
+                <p class="poppinss home-tagline">Building innovative solutions through code</p>
+                <br>
+                <div class="home-buttons flex">
+                    <a href="{% static 'pdf/Sumit_Resume.pdf' %}" target="_blank" class="btn poppins">
+                        <i class="fas fa-download"></i> Resume
+                    </a>
+                    <a href="#contact" class="btn live poppins" id="hireme">
+                        <i class="fas fa-paper-plane"></i> Let's Talk
+                    </a>
+                </div>
+                <br><br>
+                <div class="social-links flex">
+                    <a href="https://linkedin.com/in/sumitsidharth  " target="_blank" class="social-icon" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"> </i></a>
+                    <a href="https://github.com/sumitsidharth" target="_blank" class="social-icon" aria-label="GitHub">
+                        <i class="fab fa-github"></i></a>
+                    <a href="https://instagram.com/sumitsidharth" target="_blank" class="social-icon" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
             </div>
         </div>
+
         <div class="home-right flex s-center items-center">
             <div class="circle flex s-center items-center" id="mainImage">
-               
-                <img src="{% static 'images/avatar.png'%}" alt="">
+                <img src="{% static 'images/avatar.png' %}" alt="Sumit Sidharth">
             </div>
-
         </div>
     </section>
 
     <!-- About Section -->
     <section id="about">
-        <h1 class="t-center my-2 t-white f-2">About Me</h1>
-        <div class="about-container flex s-around ">
-            <div class=" about-left flex s-center items-center">
-                <!-- Here in src replade the given link with your secondary image link -->
-                <img src="{%static 'images/desk.png'%}" alt="" style="width: 60%;">
+        <h1 class="t-center my-2 t-white f-2 section-title">About Me</h1>
+
+        <div class="about-container flex s-around">
+            <div class="about-left flex s-center items-center">
+                <img src="{% static 'images/desk.png' %}" alt="Work Desk" class="about-img">
             </div>
 
             <div class="about-right flex">
                 <div class="about-content">
                     <h1 class="t-white m-b-1 poppins">Sumit Sidharth</h1>
-                    <p class="t-white poppins">My name is Sumit Sidharth.I’m a B.tech student ITER College in Computer Science & Engineering.
-                        
-                        
-                        I am fresher, I’m passionate about creating quality products that meet all of the customer’s needs, and I love learning new techniques and technologies that allow me to make that happen.While I generally enjoy all of my job, the part I find most draining is estimating projects for customers. I don’t mind doing it, but I enjoy actually creating the software much more.</p>
-                    <a class="btn " id="hireme"
-                        href="">Hire Me</a>
+                    <p class="t-white poppins">
+                        I am a B.Tech student at ITER College, specializing in Computer Science & Engineering.
+                        As a passionate fresher, I'm dedicated to creating high-quality products that meet customer needs.
+                        I love learning new techniques and technologies that help me build better solutions.
+                    </p>
+                    <p class="t-white poppins">
+                        When I'm not coding, you can find me exploring new technologies, contributing to open-source projects,
+                        or enhancing my problem-solving skills.
+                    </p>
+                    <a href="mailto:sumitsidharth@example.com" class="btn poppins" id="hireme">
+                        <i class="fas fa-paper-plane"></i> Hire Me
+                    </a>
                 </div>
             </div>
         </div>
@@ -82,91 +125,180 @@
 
     <!-- Skills Section -->
     <section id="skills">
-        <h1 class="t-center my-2 t-white f-2">Skills</h1>
-        <div class="services-container flex s-around h-50">
-        <div class=" skills-left flex s-center items-center">
-            <img src="{%static 'images/port.png'%}" alt="">
-        </div>
+        <h1 class="t-center my-2 t-white f-2 section-title">Skills</h1>
 
-        <div class="skills-right flex items-center">
-            <div class="skillss-container">
-                <div class="java bar p-relative"><span class="bar-content left t-white"> Core Java</span><span
-                        class="bar-content right-skills t-white">90%</span></div>
-                <div class="html bar p-relative"><span class="bar-content left t-white">HTML</span><span
-                        class="bar-content right-skills t-white">90%</span></div>
-                <div class="css bar p-relative"><span class="bar-content left t-white">CSS</span><span
-                        class="bar-content right-skills t-white">80%</span></div>
-                <div class="js bar p-relative"><span class="bar-content left t-white">JavaScript</span><span
-                        class="bar-content right-skills t-white">60%</span></div>
-                <div class="python bar p-relative"><span class="bar-content left t-white">Python</span><span
-                        class="bar-content right-skills t-white">50%</span></div>
-                <div class="mysql bar p-relative"><span class="bar-content left t-white">MySQL</span><span
-                        class="bar-content right-skills t-white">40%</span></div>        
+        <div class="services-container flex s-around h-50">
+            <div class="skills-left flex s-center items-center">
+                <img src="{% static 'images/port.png' %}" alt="Skills" class="skills-image">
             </div>
-        </div>
+
+            <div class="skills-right flex items-center">
+                <div class="skillss-container">
+                    <!-- Skill: Core Java -->
+                    <div class="skill-item">
+                        <div class="java bar p-relative">
+                            <span class="bar-content left t-white">Core Java</span>
+                            <span class="bar-content right-skills t-white">90%</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill: HTML -->
+                    <div class="skill-item">
+                        <div class="html bar p-relative">
+                            <span class="bar-content left t-white">HTML</span>
+                            <span class="bar-content right-skills t-white">90%</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill: CSS -->
+                    <div class="skill-item">
+                        <div class="css bar p-relative">
+                            <span class="bar-content left t-white">CSS</span>
+                            <span class="bar-content right-skills t-white">80%</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill: JavaScript -->
+                    <div class="skill-item">
+                        <div class="js bar p-relative">
+                            <span class="bar-content left t-white">JavaScript</span>
+                            <span class="bar-content right-skills t-white">65%</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill: Python -->
+                    <div class="skill-item">
+                        <div class="python bar p-relative">
+                            <span class="bar-content left t-white">Python</span>
+                            <span class="bar-content right-skills t-white">50%</span>
+                        </div>
+                    </div>
+
+                    <!-- Skill: MySQL -->
+                    <div class="skill-item">
+                        <div class="mysql bar p-relative">
+                            <span class="bar-content left t-white">MySQL</span>
+                            <span class="bar-content right-skills t-white">40%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    
-
     <!-- Projects Section -->
-    <section id="Projects">
-        <h1 class=" t-center my-2 t-white f-2">Projects</h1>
-        <div class="projects-container flex s-center">
-            <div class="projects-item flex f-col s-center items-center">
-               
-                <h1 class="t-white poppins">Amazone-clone</h1>
-                <p class="t-white poppins"> This is a functional shopping app intended to be a clone of Amazon and some of its features. This is clone is mixed with my design style and features that I thought would make it look better. This was created with React and incorporates Firebase Cloud firestore , firebase authentication, and accepts payments through Stripe.</p>
-                <div class="buttons flex s-around">
-                    <a href=""
-                        target="_blanks" class="btn mx-1 m-top">GitHub</a>
-                    <a href="" target="_blanks" class="btn m-top live">Live
-                        Link</a>
-                </div>
-            </div>
-            <div class="projects-item flex f-col s-center items-center">
-               
-                <h1 class="t-white poppins">My Portfolio</h1>
-                <p class="t-white poppins">This is My portfolio website which is created with HTML,CSS and Javascript which describe my skill and knowledge.My portfolio website showcases my work in a sleek and minimalist design, allowing the focus to be on the content itself. The layout is uncluttered, making it easy for visitors to navigate and explore my projects.</p>
-                <div class="buttons flex s-around">
-                    <a href="" target="_blanks"
-                        class="btn mx-1 m-top">GitHub</a>
-                    <a href="#" target="_blanks" class="btn m-top live">Live
-                        Link</a>
-                </div>
-            </div>
-           
-         </div>
+    <section id="projects">
+        <h1 class="t-center my-2 t-white f-2 section-title">Projects</h1>
 
+        <div class="projects-container flex s-center">
+            <!-- Project 1: Amazon Clone -->
+            <div class="projects-item flex f-col s-center items-center">
+                <div class="project-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h1 class="t-white poppins">Amazon Clone</h1>
+                <p class="t-white poppins">
+                    A functional shopping app clone of Amazon with my design style.
+                    Built with React, Firebase Cloud Firestore, Firebase Authentication, and Stripe payment integration.
+                </p>
+                <div class="buttons flex s-around">
+                    <a href="https://github.com/sumitsidharth/amazon-clone" target="_blank" class="btn mx-1 m-top">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="#" target="_blank" class="btn m-top live">
+                        <i class="fas fa-external-link-alt"></i> Live
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 2: My Portfolio -->
+            <div class="projects-item flex f-col s-center items-center">
+                <div class="project-icon">
+                    <i class="fas fa-user-tie"></i>
+                </div>
+                <h1 class="t-white poppins">My Portfolio</h1>
+                <p class="t-white poppins">
+                    A sleek and minimalist portfolio website showcasing my work and skills.
+                    Created with HTML, CSS, JavaScript, and Django for the backend.
+                </p>
+                <div class="buttons flex s-around">
+                    <a href="https://github.com/sumitsidharth/portfolio" target="_blank" class="btn mx-1 m-top">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                    <a href="#" target="_blank" class="btn m-top live">
+                        <i class="fas fa-external-link-alt"></i> Live
+                    </a>
+                </div>
+            </div>
+
+            <!-- Project 3: Coming Soon -->
+            <div class="projects-item flex f-col s-center items-center">
+                <div class="project-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+                <h1 class="t-white poppins">More Coming Soon</h1>
+                <p class="t-white poppins">
+                    Currently working on exciting new projects. Stay tuned for updates!
+                </p>
+                <div class="buttons flex s-around">
+                    <a href="https://github.com/sumitsidharth" target="_blank" class="btn mx-1 m-top">
+                        <i class="fab fa-github"></i> GitHub
+                    </a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Contact Me Section -->
-    <section id="Contact" class="m-b-1">
-        <h1 class=" t-center my-2 t-white f-2">Contact Me</h1>
+    <section id="contact" class="m-b-1">
+        <h1 class="t-center my-2 t-white f-2 section-title">Contact Me</h1>
+
         <div class="contact-container flex s-around items-centers">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h2 class="t-white poppins">Let's Connect!</h2>
+                <p class="t-white poppins">Feel free to reach out for collaborations or just a friendly hello.</p>
+
+                <div class="contact-details">
+                    <div class="contact-item flex items-center">
+                        <i class="fas fa-envelope"></i>
+                        <span class="t-white">sumitsidharth@example.com</span>
+                    </div>
+                    <div class="contact-item flex items-center">
+                        <i class="fas fa-phone"></i>
+                        <span class="t-white">+91 9876543210</span>
+                    </div>
+                    <div class="contact-item flex items-center">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span class="t-white">Bhubaneswar, Odisha, India</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
             <div class="form" id="contactForm">
-                <form method="post" > 
+                <form method="post" action="{% url 'contact' %}">
                     {% csrf_token %}
-                    <div class="name form-div">
-                        <input type="text" name="name" id="name" class="poppins" placeholder="Enter Your Name">
+
+                    <div class="form-div">
+                        <input type="text" name="name" id="name" class="poppins" placeholder="Your Name" required>
                     </div>
 
-                    <div class="email form-div">
-                        <input type="email" name="email" id="" class="poppins" placeholder="Enter Your Email"
-                            required>
+                    <div class="form-div">
+                        <input type="email" name="email" id="email" class="poppins" placeholder="Your Email" required>
                     </div>
 
-                    <div class="phone form-div">
-                        <input type="phone" name="number" id="" class="poppins" placeholder="Enter Your Phone"
-                            required>
+                    <div class="form-div">
+                        <input type="tel" name="number" id="number" class="poppins" placeholder="Your Phone Number" required>
                     </div>
-                    
-                    <div class="textarea form-div">
-                        <textarea name="content" id="textarea" cols="30" rows="10" class="poppins"
-                            placeholder="Enter Messages"></textarea>
+
+                    <div class="form-div">
+                        <textarea name="content" id="textarea" cols="30" rows="5" class="poppins" placeholder="Your Message" required></textarea>
                     </div>
-                    <button type="submit" class="btn poppins" id="submit">Send</button>
+
+                    <button type="submit" class="btn poppins" id="submit">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
                 </form>
             </div>
         </div>
@@ -175,28 +307,124 @@
     <!-- Footer Section -->
     <footer id="footer">
         <ul class="flex s-center w-80 m-auto my-2 res">
-            <li><a href="#home" class="poppinss">Home</a></li>
-            <li><a href="#about" class="poppinss">About</a></li>
-            <li><a href="#skills" class="poppinss">Skills</a></li>
-            <li><a href="#projects" class="poppinss">Projects</a></li>
-            <li><a href="#portfolio" class="poppinss">Portfolio</a></li>
+            <li><a href="#home" class="poppinss"><i class="fas fa-home"></i> Home</a></li>
+            <li><a href="#about" class="poppinss"><i class="fas fa-user"></i> About</a></li>
+            <li><a href="#skills" class="poppinss"><i class="fas fa-code"></i> Skills</a></li>
+            <li><a href="#projects" class="poppinss"><i class="fas fa-project-diagram"></i> Projects</a></li>
+            <li><a href="#contact" class="poppinss"><i class="fas fa-envelope"></i> Contact</a></li>
         </ul>
-        <ul class="flex s-center w-80 font-awesome ">
-            <a href="" target="_blank">
-                <li><i class="fa-brands fa-linkedin-in"></i></li>
-            </a>
-            <a href="" target="_blank">
-                <li><i class="fa-brands fa-github"></i></li>
-            </a>
-                <a href="" target="_blank">
-                    <li><i class="fa-brands fa-instagram"></i></li>
-            </a>
-            
-        </ul>
-        <p class="t-center my-2 poppins">&copy; All Rights Reserved - <span class="cpy-white poppins">Error By Night 
-                </span></p>
 
+        <ul class="flex s-center w-80 font-awesome">
+            <a href="https://linkedin.com/in/sumitsidharth" target="_blank" aria-label="LinkedIn">
+                <li><i class="fab fa-linkedin-in"></i></li>
+            </a>
+            <a href="https://github.com/sumitsidharth" target="_blank" aria-label="GitHub">
+                <li><i class="fab fa-github"></i></li>
+            </a>
+            <a href="https://instagram.com/sumitsidharth" target="_blank" aria-label="Instagram">
+                <li><i class="fab fa-instagram"></i></li>
+            </a>
+        </ul>
+
+        <p class="t-center my-2 poppins">
+            &copy; 2024 All Rights Reserved - <span class="cpy-white poppins">Sumit Sidharth</span>
+        </p>
     </footer>
-     
-</body> 
+
+    <!-- JavaScript for interactivity -->
+    <script>
+        // ========================================
+        // Loading Animation
+        // ========================================
+        window.addEventListener('load', function() {
+            const loader = document.getElementById('loader');
+            loader.classList.add('fade-out');
+            setTimeout(function() {
+                loader.style.display = 'none';
+            }, 500);
+        });
+
+        // ========================================
+        // Theme Toggle
+        // ========================================
+        const themeToggle = document.getElementById('themeToggle');
+        const body = document.body;
+
+        // Check for saved theme preference
+        const currentTheme = localStorage.getItem('theme');
+        if (currentTheme === 'light') {
+            body.classList.add('light-theme');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        themeToggle.addEventListener('click', function() {
+            body.classList.toggle('light-theme');
+            if (body.classList.contains('light-theme')) {
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                localStorage.setItem('theme', 'light');
+            } else {
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+
+        // ========================================
+        // Mobile Menu Toggle
+        // ========================================
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuBtn.addEventListener('click', function() {
+            navMenu.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#navMenu ul li a').forEach(link => {
+            link.addEventListener('click', function() {
+                navMenu.classList.remove('active');
+                const icon = mobileMenuBtn.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+
+        // ========================================
+        // Smooth Scroll for Navigation
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ========================================
+        // Navbar Background on Scroll
+        // ========================================
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.3)';
+            } else {
+                navbar.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+
 </html>
+
